@@ -13,13 +13,7 @@ class Solution {
                 }
             }
         }
-        System.out.print(col[0]);
-        // for(int i=0;i<row.length;i++){
-        //     System.out.print(row[i]); 
-        // }
-        // for(int i=0;i<row.length;i++){
-        //     System.out.print(col[i]); 
-        // }
+        
          for(int i=0;i<matrix.length;i++){
             for(int j=0; j<matrix[i].length;j++){
                 if(row[i]==0 || col[j]==0){
@@ -27,8 +21,6 @@ class Solution {
                 }
             }
         }
-    
-        // return matrix;
         
     }
 }
