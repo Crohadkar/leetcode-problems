@@ -14,20 +14,30 @@
  * }
  */
 class Solution {
+    int sum=0;
     public int deepestLeavesSum(TreeNode root) {
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        int sum =0 ;
-        while(!q.isEmpty()){
-            sum=0;
-            int size = q.size();
-            for(int i=0;i<size;i++){
-                TreeNode curr = q.remove();
-                sum +=curr.val;
-                if(curr.left!=null)q.add(curr.left);
-                if(curr.right!=null)q.add(curr.right);
-            }
+        int mheight = height(root);
+        return func(root,1,mheight);
+    }
+    
+    public int height (TreeNode root){
+            if(root==null)return 0;
+            int lh = height(root.left);
+            int rh = height(root.right);
+            return Math.max(lh,rh)+1;
+        }
+    
+    public int func(TreeNode root,int count , int mheight){  
+        if(count==mheight &&(root.left==null && root.right==null)) sum+=root.val;
+        if(count<mheight &&(root.left!=null || root.right!=null)){   
+            count++;
+            
+            if(root.right!=null) func(root.right,count,mheight);  
+            if(root.left!=null)  func(root.left,count, mheight);  
+            
         }
         return sum;
     }
+    
+    
 }
