@@ -3,8 +3,7 @@ class Solution {
         Stack<Integer> s = new Stack<>();
        for(String str : tokens){ 
            if(str.equals("+")){
-               int a = s.pop(), b = s.pop();
-               s.push(a+b);     
+               s.push(s.pop()+s.pop());     
            }else if(str.equals("-")){
                int a = s.pop(), b = s.pop();
                s.push(b-a);  
