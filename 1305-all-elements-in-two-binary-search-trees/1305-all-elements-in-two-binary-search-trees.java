@@ -23,13 +23,9 @@ class Solution {
         return ans;
     }
     void bfs(TreeNode root ,List<Integer> ans) {
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while(!q.isEmpty()){
-            TreeNode cur = q.poll();
-            ans.add(cur.val);
-            if(cur.left !=null)q.add(cur.left);
-            if(cur.right != null)q.add(cur.right);
+        if(root==null)return ;
+        bfs(root.left ,ans);
+        ans.add(root.val);
+        bfs(root.right,ans);
         }
     }
-}
